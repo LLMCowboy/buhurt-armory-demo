@@ -29,8 +29,7 @@ export default function App() {
   useGSAP(() => {
     gsap.defaults({ ease: "power3.out" });
     
-    // Basic SplitText simulation (since we don't have the actual premium plugin imported yet)
-    // We will do a simple stagger reveal for now.
+    // Stagger reveal for the main hero text
     gsap.from(".hero-text", {
       y: 100,
       opacity: 0,
@@ -49,6 +48,18 @@ export default function App() {
       delay: 0.5
     });
 
+    // Simple parallax on the hero background
+    gsap.to(".hero-bg", {
+      yPercent: 20,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero-section",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+
   }, { scope: containerRef });
 
   return (
@@ -57,79 +68,117 @@ export default function App() {
       {/* FLOATING PILL NAV */}
       <nav className="nav-pill fixed top-6 left-1/2 -translate-x-1/2 z-50 px-8 py-4 bg-surface/80 backdrop-blur-xl border border-steel/10 rounded-full flex gap-8 items-center text-sm font-sans tracking-widest uppercase">
         <a href="#home" className="hover:text-forge transition-colors duration-spring">Home</a>
-        <a href="#armor" className="hover:text-forge transition-colors duration-spring">Medieval Armor</a>
-        <a href="#showcase" className="hover:text-forge transition-colors duration-spring">Build</a>
+        <a href="#armor" className="hover:text-forge transition-colors duration-spring">Collection</a>
+        <a href="#showcase" className="hover:text-forge transition-colors duration-spring">3D Build</a>
       </nav>
 
-      {/* HERO SECTION (Double-Bezel) */}
-      <section className="bezel-container h-[90vh]">
-        <div className="bezel-content flex flex-col items-center justify-center relative bg-[#0a0a0a]">
-          {/* Placeholder for canvas forging scroll */}
-          <div className="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-forge/20 via-obsidian to-obsidian pointer-events-none"></div>
+      {/* HERO SECTION */}
+      <section className="hero-section bezel-container h-[90vh]">
+        <div className="bezel-content flex flex-col items-center justify-center relative">
           
-          <div className="z-10 text-center overflow-hidden flex flex-col items-center">
-            <h1 className="text-[12vw] leading-[0.8] text-steel mb-6 hero-text mix-blend-difference">
+          {/* Authentic Buhurt Tech Hero Background */}
+          <div 
+            className="hero-bg absolute inset-0 z-0 bg-cover bg-top -top-[10%] h-[120%]"
+            style={{ backgroundImage: 'url("https://static.wixstatic.com/media/6d045f_4dfec19a056f47188449408afb05a593~mv2.jpg")' }}
+          ></div>
+          <div className="absolute inset-0 z-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
+          
+          <div className="z-10 text-center overflow-hidden flex flex-col items-center pt-20">
+            <h1 className="text-[12vw] leading-[0.8] text-steel mb-6 hero-text drop-shadow-2xl">
               BUHURT<br/>TECH
             </h1>
-            <p className="hero-text font-sans text-lg md:text-xl tracking-widest text-steel/60 max-w-md">
+            <p className="hero-text font-sans text-lg md:text-xl tracking-widest text-steel/80 max-w-md drop-shadow-md">
               THE APEX OF MEDIEVAL COMBAT ENGINEERING.
             </p>
           </div>
         </div>
       </section>
 
-      {/* BENTO CATEGORY GRID (Double-Bezel) */}
+      {/* BENTO CATEGORY GRID */}
       <section id="armor" className="grid grid-cols-1 md:grid-cols-12 gap-6 min-h-screen">
+        
+        {/* Full Sets - Squire */}
         <div className="col-span-12 md:col-span-8 bezel-container h-[50vh] md:h-auto group cursor-pointer">
-          <div className="bezel-content flex flex-col justify-end p-8 md:p-12 transition-transform duration-spring group-hover:scale-[1.02]">
-            <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/20 to-transparent z-10"></div>
-            {/* Image Placeholder */}
-            <div className="absolute inset-0 bg-[#151515] z-0"></div>
-            <div className="relative z-20 flex justify-between items-end">
+          <div className="bezel-content flex flex-col justify-end p-8 md:p-12 overflow-hidden">
+            <div 
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0"
+              style={{ backgroundImage: 'url("https://static.wixstatic.com/media/6d045f_5601a6bb5b584b6a8a2f80f552a68e30~mv2.jpg")' }}
+            ></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/20 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
+            
+            <div className="relative z-20 flex justify-between items-end transform transition-transform duration-spring group-hover:translate-y-[-4px]">
               <div>
                 <h2 className="text-4xl md:text-6xl text-steel mb-2">COMPLETE SETS</h2>
-                <p className="font-sans text-steel/60 tracking-wider">Titanium & Spring Steel</p>
+                <p className="font-sans text-steel/80 tracking-wider uppercase text-sm">Featuring The "Squire" Set</p>
               </div>
-              <div className="w-12 h-12 rounded-full border border-steel/20 flex items-center justify-center group-hover:bg-forge group-hover:border-forge transition-colors duration-spring">
+              <div className="w-12 h-12 rounded-full border border-steel/40 flex items-center justify-center group-hover:bg-forge group-hover:border-forge transition-colors duration-spring backdrop-blur-md">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Vertical Stack (Training & Poleaxes) */}
         <div className="col-span-12 md:col-span-4 flex flex-col gap-6">
           <div className="bezel-container h-[40vh] md:h-1/2 group cursor-pointer">
-            <div className="bezel-content p-8 transition-transform duration-spring group-hover:scale-[1.02] flex flex-col justify-end bg-[#111]">
-              <div className="relative z-20">
-                <h3 className="text-3xl text-steel">HELMETS</h3>
-                <p className="font-sans text-sm text-steel/50 mt-1">Griffon, Bascinet, Wolf Rib</p>
+            <div className="bezel-content p-8 flex flex-col justify-end overflow-hidden">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0"
+                style={{ backgroundImage: 'url("https://static.wixstatic.com/media/ac5c11_063a4e7d9ed74ec6a08dab05701d2cb9~mv2.jpg")' }}
+              ></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
+              
+              <div className="relative z-20 transform transition-transform duration-spring group-hover:translate-y-[-4px]">
+                <h3 className="text-3xl text-steel">TRAINING ARMOR</h3>
+                <p className="font-sans text-sm text-steel/70 mt-1 uppercase tracking-widest">"Ares" Soft Kit</p>
               </div>
             </div>
           </div>
+          
           <div className="bezel-container h-[40vh] md:h-1/2 group cursor-pointer">
-            <div className="bezel-content p-8 transition-transform duration-spring group-hover:scale-[1.02] flex flex-col justify-end bg-[#111]">
-              <div className="relative z-20">
-                <h3 className="text-3xl text-steel">GAUNTLETS</h3>
-                <p className="font-sans text-sm text-steel/50 mt-1">Mitten & Hourglass</p>
+            <div className="bezel-content p-8 flex flex-col justify-end overflow-hidden">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0"
+                style={{ backgroundImage: 'url("https://static.wixstatic.com/media/6d045f_7ecaea9fda8b4934bd3a6c4e953036dd~mv2.jpg")', backgroundPosition: 'center 30%' }}
+              ></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
+              
+              <div className="relative z-20 transform transition-transform duration-spring group-hover:translate-y-[-4px]">
+                <h3 className="text-3xl text-steel">HEAVY POLEAXES</h3>
+                <p className="font-sans text-sm text-steel/70 mt-1 uppercase tracking-widest">"Eclipse" Combat Axe</p>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Spears */}
         <div className="col-span-12 md:col-span-5 bezel-container h-[50vh] group cursor-pointer">
-          <div className="bezel-content p-8 transition-transform duration-spring group-hover:scale-[1.02] flex flex-col justify-end bg-[#131313]">
-            <div className="relative z-20">
-              <h3 className="text-4xl text-steel">ARMS & LEGS</h3>
-              <p className="font-sans text-steel/50 mt-2 tracking-wider">Anatomical Protection</p>
+          <div className="bezel-content p-8 flex flex-col justify-end overflow-hidden">
+            <div 
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0"
+              style={{ backgroundImage: 'url("https://static.wixstatic.com/media/ac5c11_6bac582e6cea417c8aa1b7354912ab6c~mv2.jpg")' }}
+            ></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
+            
+            <div className="relative z-20 transform transition-transform duration-spring group-hover:translate-y-[-4px]">
+              <h3 className="text-4xl text-steel">SPEARS</h3>
+              <p className="font-sans text-sm text-steel/70 mt-2 tracking-widest uppercase">"Dragonslayer" Pattern</p>
             </div>
           </div>
         </div>
 
+        {/* Glaives */}
         <div className="col-span-12 md:col-span-7 bezel-container h-[50vh] group cursor-pointer">
-          <div className="bezel-content p-8 transition-transform duration-spring group-hover:scale-[1.02] flex flex-col justify-end bg-[#151515]">
-            <div className="relative z-20">
-              <h3 className="text-4xl text-steel">BRIGANDINES</h3>
-              <p className="font-sans text-steel/50 mt-2 tracking-wider">Chalkis & Visby Patterns</p>
+          <div className="bezel-content p-8 flex flex-col justify-end overflow-hidden">
+            <div 
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0"
+              style={{ backgroundImage: 'url("https://static.wixstatic.com/media/398c04_3ecc29b1358547089cbd282b0e971738~mv2.jpg")' }}
+            ></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
+            
+            <div className="relative z-20 transform transition-transform duration-spring group-hover:translate-y-[-4px]">
+              <h3 className="text-4xl text-steel">GLAIVES</h3>
+              <p className="font-sans text-sm text-steel/70 mt-2 tracking-widest uppercase">Tournament Grade Precision</p>
             </div>
           </div>
         </div>
@@ -138,10 +187,10 @@ export default function App() {
       {/* 3D ARMOR SHOWCASE (Double-Bezel) */}
       <section id="showcase" className="bezel-container h-[90vh]">
         <div className="bezel-content flex items-center justify-center relative bg-obsidian">
-          <div className="absolute inset-0 opacity-5 flex items-center justify-center">
-            <h2 className="text-[20vw] leading-none select-none">3D MODEL</h2>
+          <div className="absolute inset-0 opacity-5 flex items-center justify-center pointer-events-none">
+            <h2 className="text-[20vw] leading-none select-none overflow-hidden">3D MODEL</h2>
           </div>
-          <div className="z-10 bg-surface/90 backdrop-blur-md p-8 md:p-12 border border-steel/10 rounded-2xl max-w-lg text-center">
+          <div className="z-10 bg-surface/90 backdrop-blur-md p-8 md:p-12 border border-steel/10 rounded-2xl max-w-lg text-center shadow-2xl">
             <h3 className="text-3xl text-forge mb-4">AWAITING 3D ASSETS</h3>
             <p className="font-sans text-sm text-steel/80 leading-relaxed">
               This Double-Bezel container is the designated mount point for the R3F Canvas. Once the .glb files are in the public folder, the interactive exploded-view armor will render here.
@@ -151,7 +200,7 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="mt-20 px-8 py-12 flex flex-col md:flex-row justify-between items-center border-t border-steel/10 font-sans text-xs tracking-[0.2em] text-steel/40 uppercase">
+      <footer className="mt-20 px-8 py-12 flex flex-col md:flex-row justify-between items-center border-t border-steel/10 font-sans text-xs tracking-[0.2em] text-steel/40 uppercase bg-obsidian/50 rounded-t-[4rem]">
         <p>© 2026 BUHURT TECH. ENGINEERED FOR COMBAT.</p>
         <div className="flex items-center gap-4 mt-6 md:mt-0">
           <div className="w-2 h-2 rounded-full bg-forge animate-pulse"></div>
