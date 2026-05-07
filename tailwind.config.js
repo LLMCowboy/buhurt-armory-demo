@@ -7,14 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        obsidian: "#09090b",
-        surface: "#18181b",
+        obsidian: "#050505", // True Midnight Luxe background
+        surface: "#111111", // Inner core background
         forge: "#ea580c",
-        steel: "#f4f4f5",
+        steel: "#EAEAEA", // Champagne / Steel text
       },
       fontFamily: {
-        sans: ['Outfit', 'sans-serif'],
-        serif: ['Cinzel', 'serif'],
+        sans: ['Space Grotesk', 'sans-serif'],
+        display: ['Clash Display', 'sans-serif'],
+      },
+      borderRadius: {
+        'bezel-outer': '2rem',
+        'bezel-inner': '1.625rem', // 2rem - 0.375rem (6px gap)
+      },
+      transitionTimingFunction: {
+        'spring': 'cubic-bezier(0.32, 0.72, 0, 1)',
       }
     },
   },
