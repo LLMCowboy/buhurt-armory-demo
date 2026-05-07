@@ -4,7 +4,7 @@ import { useRef, useMemo, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocessing'
 import * as THREE from 'three'
-import { CURL_NOISE, HASH } from '../../lib/glsl/chunks.ts'
+import { CURL_NOISE, HASH } from '../../lib/glsl/chunks.js'
 
 const SIM_SIZE = 128 // 128×128 = 16,384 particles
 
@@ -98,7 +98,6 @@ void main() {
   float alpha = strength * vLife * 0.8;
 
   gl_FragColor = vec4(uColor, alpha);
-  #include <colorspace_fragment>
 }
 `
 

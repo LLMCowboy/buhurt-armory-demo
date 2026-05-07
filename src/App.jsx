@@ -93,10 +93,10 @@ export default function App() {
           </div>
           
           <div className="z-20 text-center overflow-hidden flex flex-col items-center pt-20 pointer-events-none">
-            <h1 className="text-[12vw] leading-[0.8] text-steel mb-6 hero-text drop-shadow-2xl">
+            <h1 className="text-[12vw] leading-[0.8] font-black tracking-tighter text-steel mb-6 hero-text drop-shadow-[0_0_30px_rgba(234,88,12,0.5)]">
               BUHURT<br/>TECH
             </h1>
-            <p className="hero-text font-sans text-lg md:text-xl tracking-widest text-steel/80 max-w-md drop-shadow-md">
+            <p className="hero-text font-sans font-bold text-lg md:text-xl tracking-widest text-steel/80 max-w-md drop-shadow-md">
               THE APEX OF MEDIEVAL COMBAT ENGINEERING.
             </p>
           </div>
@@ -111,14 +111,14 @@ export default function App() {
           <div className="bezel-container h-[50vh] md:h-full">
             <div className="bezel-content flex flex-col justify-end p-8 md:p-12 overflow-hidden">
               <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0"
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0 mix-blend-luminosity grayscale"
                 style={{ backgroundImage: 'url("https://static.wixstatic.com/media/6d045f_5601a6bb5b584b6a8a2f80f552a68e30~mv2.jpg")' }}
               ></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/20 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
               
               <div className="relative z-20 flex justify-between items-end transform transition-transform duration-spring group-hover:translate-y-[-4px]">
                 <div>
-                  <h2 className="text-4xl md:text-6xl text-steel mb-2">COMPLETE SETS</h2>
+                  <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-steel mb-2">COMPLETE SETS</h2>
                   <p className="font-sans text-steel/80 tracking-wider uppercase text-sm">Featuring The "Squire" Set</p>
                 </div>
                 <div className="w-12 h-12 rounded-full border border-steel/40 flex items-center justify-center group-hover:bg-forge group-hover:border-forge transition-colors duration-spring backdrop-blur-md">
@@ -136,13 +136,13 @@ export default function App() {
             <div className="bezel-container h-full w-full">
               <div className="bezel-content p-8 flex flex-col justify-end overflow-hidden">
                 <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0 mix-blend-luminosity grayscale"
                   style={{ backgroundImage: 'url("https://static.wixstatic.com/media/ac5c11_063a4e7d9ed74ec6a08dab05701d2cb9~mv2.jpg")' }}
                 ></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
                 
                 <div className="relative z-20 transform transition-transform duration-spring group-hover:translate-y-[-4px]">
-                  <h3 className="text-3xl text-steel">TRAINING ARMOR</h3>
+                  <h3 className="text-3xl font-black tracking-tighter text-steel">TRAINING ARMOR</h3>
                   <p className="font-sans text-sm text-steel/70 mt-1 uppercase tracking-widest">"Ares" Soft Kit</p>
                 </div>
               </div>
@@ -153,13 +153,13 @@ export default function App() {
             <div className="bezel-container h-full w-full">
               <div className="bezel-content p-8 flex flex-col justify-end overflow-hidden">
                 <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0 mix-blend-luminosity grayscale"
                   style={{ backgroundImage: 'url("https://static.wixstatic.com/media/6d045f_7ecaea9fda8b4934bd3a6c4e953036dd~mv2.jpg")', backgroundPosition: 'center 30%' }}
                 ></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
                 
                 <div className="relative z-20 transform transition-transform duration-spring group-hover:translate-y-[-4px]">
-                  <h3 className="text-3xl text-steel">HEAVY POLEAXES</h3>
+                  <h3 className="text-3xl font-black tracking-tighter text-steel">HEAVY POLEAXES</h3>
                   <p className="font-sans text-sm text-steel/70 mt-1 uppercase tracking-widest">"Eclipse" Combat Axe</p>
                 </div>
               </div>
@@ -172,13 +172,13 @@ export default function App() {
           <div className="bezel-container h-[50vh]">
             <div className="bezel-content p-8 flex flex-col justify-end overflow-hidden">
               <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0"
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0 mix-blend-luminosity grayscale"
                 style={{ backgroundImage: 'url("https://static.wixstatic.com/media/ac5c11_6bac582e6cea417c8aa1b7354912ab6c~mv2.jpg")' }}
               ></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
               
               <div className="relative z-20 transform transition-transform duration-spring group-hover:translate-y-[-4px]">
-                <h3 className="text-4xl text-steel">SPEARS</h3>
+                <h3 className="text-4xl font-black tracking-tighter text-steel">SPEARS</h3>
                 <p className="font-sans text-sm text-steel/70 mt-2 tracking-widest uppercase">"Dragonslayer" Pattern</p>
               </div>
             </div>
@@ -190,13 +190,13 @@ export default function App() {
           <div className="bezel-container h-[50vh]">
             <div className="bezel-content p-8 flex flex-col justify-end overflow-hidden">
               <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0"
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0 mix-blend-luminosity grayscale"
                 style={{ backgroundImage: 'url("https://static.wixstatic.com/media/398c04_3ecc29b1358547089cbd282b0e971738~mv2.jpg")' }}
               ></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
               
               <div className="relative z-20 transform transition-transform duration-spring group-hover:translate-y-[-4px]">
-                <h3 className="text-4xl text-steel">GLAIVES</h3>
+                <h3 className="text-4xl font-black tracking-tighter text-steel">GLAIVES</h3>
                 <p className="font-sans text-sm text-steel/70 mt-2 tracking-widest uppercase">Tournament Grade Precision</p>
               </div>
             </div>
