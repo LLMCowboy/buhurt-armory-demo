@@ -128,23 +128,7 @@ export default function App() {
             </div>
           </div>
         </Magnetic>
-            <div 
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-spring group-hover:scale-105 z-0"
-              style={{ backgroundImage: 'url("https://static.wixstatic.com/media/6d045f_5601a6bb5b584b6a8a2f80f552a68e30~mv2.jpg")' }}
-            ></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/20 to-transparent z-10 transition-opacity duration-spring group-hover:opacity-80"></div>
-            
-            <div className="relative z-20 flex justify-between items-end transform transition-transform duration-spring group-hover:translate-y-[-4px]">
-              <div>
-                <h2 className="text-4xl md:text-6xl text-steel mb-2">COMPLETE SETS</h2>
-                <p className="font-sans text-steel/80 tracking-wider uppercase text-sm">Featuring The "Squire" Set</p>
-              </div>
-              <div className="w-12 h-12 rounded-full border border-steel/40 flex items-center justify-center group-hover:bg-forge group-hover:border-forge transition-colors duration-spring backdrop-blur-md">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
-            </div>
-          </div>
-        </div>
+
 
         {/* Vertical Stack (Training & Poleaxes) */}
         <div className="col-span-12 md:col-span-4 flex flex-col gap-6">
